@@ -1,5 +1,5 @@
 # FamilyVisaBot
-Get notified about potential timeslots available in VFS Global
+Get notified about potential timeslots available in VFS Global. Written in Python language.
 
 Step 1: Download the chromedriver.exe compatible with your Chrome version. Refer to Chrome links.url file. Store chromedriver.exe in the FamilyVisaBot project folder.
 
