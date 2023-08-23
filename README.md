@@ -1,7 +1,7 @@
 # FamilyVisaBot
 Get notified about potential timeslots available in VFS Global
 
-Step 1: Download the chromedriver.exe compatible with your Chrome version. Refer to Chrome links.url file. Store chromedriver.exe it in the FamilyVisaBot project folder.
+Step 1: Download the chromedriver.exe compatible with your Chrome version. Refer to Chrome links.url file. Store chromedriver.exe in the FamilyVisaBot project folder.
 
 Step 2: Install bot dependencies from requirements.txt file by running command pip install -r requirements.txt
 
