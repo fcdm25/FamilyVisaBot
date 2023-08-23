@@ -5,6 +5,6 @@ Step 1: Download the chromedriver.exe compatible with your Chrome version. Refer
 
 Step 2: Install bot dependencies from requirements.txt file by running command pip install -r requirements.txt
 
-Step 3: Set-up a telegram bot and replace value for variables telegram_token and telegram_chatid by bot token and group chat id respectively.
+Step 3: Set-up a telegram bot and open file scrapper.py. Replace value for variables telegram_token and telegram_chatid by bot token and group chat id respectively.
 
 Final step: Run script by executing scrapper.py
