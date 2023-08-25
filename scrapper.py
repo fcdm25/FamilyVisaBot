@@ -9,10 +9,22 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 
 # telegram credentials (replace 0 by your token & chatid)
+telegram_enabled = True
 telegram_token = 0
 telegram_chatid = 0
 
 print("Bot started...")
+
+# check if telegram credentials provided
+if not (telegram_token or telegram_chatid):
+    telegram_enabled = False
+    print("- Alert! No Telegram credentials were provided. Messages will only be printed in the prompt.")
+
+# check if chromedriver.exe is placed in project folder
+if not os.path.isfile("chromedriver.exe"): 
+    print("- Error! chromedriver.exe not found in project folder.")
+    print("Quitting...")
+    quit()
 
 # access website
 driver = webdriver.Chrome()
@@ -20,7 +32,7 @@ vfs_website = driver.get("https://visa.vfsglobal.com/rus/ru/nld/login")
 
 print("Website successfully opened!")
 
-# sleep for 2 minutes so user can fill in credentials manually
+# sleep for 2 minutes so user can fill in credentials manually and proceed in the next page
 sleep(120)
 
 # first round of inputs
@@ -73,9 +85,10 @@ while True:
             winsound.Beep(440, 1000)
 
             # send telegram message
-            url = f"https://api.telegram.org/bot{telegram_token}/sendMessage"
-            post_data = {"chat_id": telegram_chatid, "parse_mode": "Markdown", "text": "There may be some good news about the visa )"}
-            requests.post(url, data=post_data)
+            if telegram_enabled:
+                url = f"https://api.telegram.org/bot{telegram_token}/sendMessage"
+                post_data = {"chat_id": telegram_chatid, "parse_mode": "Markdown", "text": "There may be some good news about the visa )"}
+                requests.post(url, data=post_data)
 
             break
 
@@ -84,8 +97,9 @@ while True:
         winsound.Beep(440, 1000)
 
         # send telegram message
-        url = f"https://api.telegram.org/bot{telegram_token}/sendMessage"
-        post_data = {"chat_id": telegram_chatid, "parse_mode": "Markdown", "text": "There may be some good news about the visa )"}
-        requests.post(url, data=post_data)
+        if telegram_enabled:
+            url = f"https://api.telegram.org/bot{telegram_token}/sendMessage"
+            post_data = {"chat_id": telegram_chatid, "parse_mode": "Markdown", "text": "There may be some good news about the visa )"}
+            requests.post(url, data=post_data)
 
         break
